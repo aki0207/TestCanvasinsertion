@@ -106,7 +106,7 @@ public class MyView extends View {
                 block_x = block_width + 1;
                 block_width = block_x + 50;
 
-
+                //はんぐりー
             }
 
             //改行
