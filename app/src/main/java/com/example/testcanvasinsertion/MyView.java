@@ -21,12 +21,18 @@ public class MyView extends View {
     int[][] field;
 
     Block block = null;
+    //ブロックの座標の初期値
     int block_x = 660;
     int block_y = 251;
     int block_width = 719;
     int block_height = 301;
-    boolean flg = false;
 
+    //フィールドの配列のどこにブロックがあるか。今回は四角の左上の座標のみを保持させてみる
+    int block_coordinate_x = 0;
+    int block_coordinate_y = 8;
+
+
+    //座標の退避用
     int block_x_evacuation = 660;
     int block_width_evacuation = 719;
 
@@ -34,7 +40,7 @@ public class MyView extends View {
     public MyView(Context context, AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
-        int[] pos;
+
 
     }
 
@@ -134,15 +140,12 @@ public class MyView extends View {
     }
 
 
-
-
     public void move() {
 
         block_x = block_x - 50;
         block_y = 251;
         block_width = block_width - 50;
         block_height = 301;
-        flg = true;
         invalidate();
 
 
@@ -173,6 +176,22 @@ public class MyView extends View {
         }
 
         return field;
+    }
+
+    //移動方向に壁、ブロックがないか調べる
+    public boolean isMoveJudge(int[][] field, int block_coordinate_x, int block_coordinate_y) {
+
+        boolean move_flg = true;
+
+        if (field[block_coordinate_x][block_coordinate_y - 1] == 1) {
+
+            move_flg = false;
+
+
+        }
+
+        return move_flg;
+
     }
 
 
