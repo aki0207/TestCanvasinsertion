@@ -140,11 +140,22 @@ public class MyView extends View {
     }
 
 
-    public void move() {
+    public void leftMove() {
 
         block_x = block_x - 50;
         block_y = 251;
         block_width = block_width - 50;
+        block_height = 301;
+        invalidate();
+
+
+    }
+
+    public void rightMove() {
+
+        block_x = block_x + 50;
+        block_y = 251;
+        block_width = block_width + 50;
         block_height = 301;
         invalidate();
 
@@ -179,11 +190,28 @@ public class MyView extends View {
     }
 
     //移動方向に壁、ブロックがないか調べる
-    public boolean isMoveJudge(int[][] field, int block_coordinate_x, int block_coordinate_y) {
+    public boolean isLeftMoveJudge(int[][] field, int block_coordinate_x, int block_coordinate_y) {
 
         boolean move_flg = true;
 
         if (field[block_coordinate_x][block_coordinate_y - 1] == 1) {
+
+            move_flg = false;
+
+
+        }
+
+        return move_flg;
+
+    }
+
+
+    //移動方向に壁、ブロックがないか調べる
+    public boolean isRightMoveJudge(int[][] field, int block_coordinate_x, int block_coordinate_y) {
+
+        boolean move_flg = true;
+
+        if (field[block_coordinate_x][block_coordinate_y + 2] == 1) {
 
             move_flg = false;
 
