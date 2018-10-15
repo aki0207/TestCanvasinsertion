@@ -25,6 +25,10 @@ public class MyView extends View {
     int block_y = 251;
     int block_width = 719;
     int block_height = 301;
+    boolean flg = false;
+
+    int block_x_evacuation = 660;
+    int block_width_evacuation = 719;
 
 
     public MyView(Context context, AttributeSet attrs) {
@@ -102,29 +106,43 @@ public class MyView extends View {
 
                 //canvas.drawRect(block.block_x, block.block_y, block.block_width, block.block_height, paint);
 
+                //塗る場所を変える前に今の座様の退避を取る
+                if (k == 0) {
+
+                    block_x_evacuation = block_x;
+                    block_width_evacuation = block_width;
+
+                }
+
                 //横にずらしてマスをつくる
                 block_x = block_width + 1;
                 block_width = block_x + 50;
 
-                //はんぐりー
+                //はん
             }
 
+
             //改行
-            block_x = 660;
+            block_x = block_x_evacuation;
             block_y = 301;
-            block_width = 719;
+            block_width = block_width_evacuation;
             block_height = 351;
 
 
         }
 
-
     }
+
+
+
 
     public void move() {
 
-        block_width = 10;
-        block_height = 30;
+        block_x = block_x - 50;
+        block_y = 251;
+        block_width = block_width - 50;
+        block_height = 301;
+        flg = true;
         invalidate();
 
 
