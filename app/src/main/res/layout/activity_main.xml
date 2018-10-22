@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
 
@@ -13,16 +13,42 @@
         android:id="@+id/my_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
 
     <Button
         android:id="@+id/leftMoveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="@drawable/button_layout"
+        android:layout_width="65dp"
+        android:layout_height="27dp"
+        android:text="←"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="151dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="80dp"
-        android:text="←" />
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"></LinearLayout>
+
+    <Button
+        android:id="@+id/rightMoveButton"
+        android:background="@drawable/button_layout"
+        android:layout_width="65dp"
+        android:layout_height="27dp"
+        android:text="→"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_alignBottom="@+id/leftMoveButton"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/leftMoveButton" />
 
 </RelativeLayout>
